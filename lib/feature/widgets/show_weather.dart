@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:weather_app/model/weather.dart';
-import '../../controller/dio_service.dart';
+import '../../helper/dio_service.dart';
 
 class WeatherShow extends StatelessWidget {
   const WeatherShow({Key? key}) : super(key: key);
@@ -22,8 +22,8 @@ class WeatherShow extends StatelessWidget {
           ],
         ),
       ),
-      child: StreamBuilder<WeatherModel>(
-        stream: state.getData().asStream(),
+      child: FutureBuilder<WeatherModel>(
+        future: state.getData(),
         builder: (context, snapshot) {
           final double tempCelcius = snapshot.data!.main!.temp! - 273.4;
           final icon = snapshot.data!.weather!.first.icon;
@@ -78,7 +78,6 @@ class WeatherShow extends StatelessWidget {
                     )
                   ],
                 ),
-
                 SfLinearGauge(
                   minimum: -10,
                   maximum: 60,

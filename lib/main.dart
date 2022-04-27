@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/controller/dio_service.dart';
 
 import 'feature/weather_feature.dart';
+import 'helper/dio_service.dart';
 
 void main() {
   runApp(const MyApp());
