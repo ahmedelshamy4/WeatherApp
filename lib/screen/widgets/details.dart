@@ -10,14 +10,14 @@ class Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var state = Provider.of<DioState>((context), listen: true);
+    var stateDetails = Provider.of<DioState>((context), listen: true);
 
     return StreamBuilder<WeatherModel>(
-      stream: state.getData().asStream(),
+      stream: stateDetails.getData().asStream(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final double MintempCelcius = snapshot.data!.main!.tempMin! - 273.4;
-          final double MaxtempCelcius = snapshot.data!.main!.tempMax! - 273.4;
+          final double mintempCelcius = snapshot.data!.main!.tempMin! - 273.4;
+          final double maxtempCelcius = snapshot.data!.main!.tempMax! - 273.4;
           return Column(
             children: [
               SizedBox(
@@ -85,7 +85,6 @@ class Details extends StatelessWidget {
                       Text(snapshot.data!.wind!.speed.toString() + "hpa")
                     ],
                   ),
-
                 ],
               ),
               SizedBox(
@@ -105,7 +104,7 @@ class Details extends StatelessWidget {
                       ),
                       SizedBox(height: 2.h),
                       Text(
-                        MintempCelcius.toStringAsFixed(0) + "C",
+                        mintempCelcius.toStringAsFixed(0) + "C",
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontWeight: FontWeight.w100,
@@ -126,7 +125,7 @@ class Details extends StatelessWidget {
                         height: 2.h,
                       ),
                       Text(
-                        MaxtempCelcius.toStringAsFixed(0) + "C",
+                        maxtempCelcius.toStringAsFixed(0) + "C",
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontWeight: FontWeight.w100,
@@ -134,7 +133,6 @@ class Details extends StatelessWidget {
                       )
                     ],
                   ),
-
                 ],
               ),
             ],

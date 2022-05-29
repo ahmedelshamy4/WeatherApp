@@ -10,15 +10,15 @@ class BasicInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var state = Provider.of<DioState>((context), listen: true);
-    return StreamBuilder<WeatherModel>(
-      stream: state.getData().asStream(),
+    var stateBasicInfo = Provider.of<DioState>((context), listen: true);
+    return FutureBuilder<WeatherModel>(
+      future: stateBasicInfo.getData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Column(
             children: [
               Text(
-                '${snapshot.data!.name.toString()}' +
+                snapshot.data!.name.toString() +
                     '\t' +
                     '  ${snapshot.data!.sys!.country.toString()}',
                 style: TextStyle(

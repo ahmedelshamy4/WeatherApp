@@ -10,7 +10,7 @@ class WeatherShow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var state = Provider.of<DioState>((context), listen: true);
+    var stateWeatherShow = Provider.of<DioState>((context), listen: true);
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -23,7 +23,7 @@ class WeatherShow extends StatelessWidget {
         ),
       ),
       child: FutureBuilder<WeatherModel>(
-        future: state.getData(),
+        future: stateWeatherShow.getData(),
         builder: (context, snapshot) {
           final double tempCelcius = snapshot.data!.main!.temp! - 273.4;
           final icon = snapshot.data!.weather!.first.icon;

@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/helper/dio_service.dart';
-import 'package:weather_app/feature/widgets/basic_info.dart';
-import 'package:weather_app/feature/widgets/details.dart';
-import 'package:weather_app/feature/widgets/search_bar.dart';
-import 'package:weather_app/feature/widgets/show_weather.dart';
 import 'package:weather_app/model/weather.dart';
+import 'package:weather_app/screen/widgets/basic_info.dart';
+import 'package:weather_app/screen/widgets/details.dart';
+import 'package:weather_app/screen/widgets/search_bar.dart';
+import 'package:weather_app/screen/widgets/show_weather.dart';
 
 class WeatherFeature extends StatelessWidget {
   const WeatherFeature({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final state = Provider.of<DioState>(context, listen: true);
+    final stateWeather = Provider.of<DioState>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Weather App"),
@@ -21,7 +21,7 @@ class WeatherFeature extends StatelessWidget {
         centerTitle: true,
       ),
       body: FutureBuilder<WeatherModel>(
-        future: state.getData(),
+        future: stateWeather.getData(),
         builder: (context, snapshot) {
           return SingleChildScrollView(
             child: Column(

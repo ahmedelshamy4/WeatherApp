@@ -8,10 +8,10 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var state = Provider.of<DioState>((context), listen: true);
+    var stateSearch = Provider.of<DioState>((context), listen: true);
     return Consumer<DioState>(builder: (context, dioState, child) {
       return TextFormField(
-        controller: state.searchBar,
+        controller: stateSearch.searchBar,
         style: const TextStyle(
           fontSize: 25.0,
           color: Colors.blueAccent,
@@ -21,11 +21,11 @@ class SearchBar extends StatelessWidget {
             suffixIcon: IconButton(
               onPressed: () {
                 if (dioState.searchBar.text.isNotEmpty) {
-                  state.SearchCity(dioState.searchBar.text);
+                  stateSearch.searchCity(dioState.searchBar.text);
                   dioState.searchBar.clear();
                 }
               },
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
             ),
             hintText: "Search Your City",
             border: const OutlineInputBorder(
@@ -34,7 +34,6 @@ class SearchBar extends StatelessWidget {
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white, width: 32.0),
             )),
-        onTap: () {},
       );
     });
   }

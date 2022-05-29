@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'feature/weather_feature.dart';
 import 'helper/dio_service.dart';
+import 'screen/weather_feature.dart';
 
 void main() {
+  WidgetsFlutterBinding();
   runApp(const MyApp());
 }
 
