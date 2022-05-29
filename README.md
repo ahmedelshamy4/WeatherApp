@@ -9,8 +9,8 @@
 <img src="https://user-images.githubusercontent.com/26741217/165557356-84b7c2d5-a4e2-4414-aeb6-4b39917771be.jpeg" width="40%"></img>
 
 <p align="center">
-<p align="center">
 ✨ App Features :
+  
   .dio
   .provider
   .flutter_screenutil
