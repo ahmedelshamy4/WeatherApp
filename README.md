@@ -1,4 +1,5 @@
-# weather_app
+# WeatherApp
+# Weather information at your current location and give You location all the time 
 
 <p align="center">
 ✨ Plugins and Concepts :
